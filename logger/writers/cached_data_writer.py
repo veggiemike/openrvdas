@@ -14,6 +14,7 @@ from logger.writers.writer import Writer  # noqa: E402
 from logger.utils.das_record import DASRecord  # noqa: E402
 
 
+# FIXME: doesn't init Writer
 class CachedDataWriter(Writer):
     def __init__(self, data_server, start_server=False, back_seconds=480,
                  cleanup_interval=6, update_interval=1,

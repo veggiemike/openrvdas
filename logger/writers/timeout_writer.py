@@ -9,6 +9,7 @@ sys.path.append(dirname(dirname(dirname(realpath(__file__)))))
 from logger.writers.writer import Writer  # noqa: E402
 
 
+# FIXME: no super init
 class TimeoutWriter(Writer):
     def __init__(self, writer, timeout, message=None, resume_message=None,
                  empty_is_okay=False, none_is_okay=False):

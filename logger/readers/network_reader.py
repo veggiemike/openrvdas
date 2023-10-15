@@ -12,6 +12,10 @@ from logger.utils.formats import Text  # noqa: E402
 READ_BUFFER_SIZE = 4096  # max number of characters to read in one call
 
 
+# FIXME: remove UDP support, actually implement and test TCP, rename to
+#        TCPReader?  probably do this along with NetworkWriter under a single
+#        issue for adding TCP support.
+#
 ################################################################################
 # Read to the specified file. If filename is empty, read to stdout.
 class NetworkReader(Reader):
@@ -79,6 +83,10 @@ class NetworkReader(Reader):
                                         type=socket.SOCK_STREAM,
                                         proto=socket.IPPROTO_TCP)
             # Should this be bind()?
+            #
+            # FIXME: Yes, you need to bind() a TCP socket before recv(), but
+            #        you also need accept().  And actually not connect().
+            #
             self.socket.connect((host, port))
 
         # UDP broadcast if no host specified. Note that there's some

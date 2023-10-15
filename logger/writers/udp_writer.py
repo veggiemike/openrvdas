@@ -45,6 +45,12 @@ class UDPWriter(Writer):
         eol          If specified, an end of line string to append to record
                      before sending.
 
+                     FIXME: honestly not sure why you would ever do this in
+                            UDP.  I can see a need for it in a stream-based
+                            protocol like TCP, but UDP 1 packet == 1 record.
+                            So there's no need to specify any sort of record
+                            seperator or eol marker.
+
         encoding - 'utf-8' by default. If empty or None, do not attempt any
                 decoding and return raw bytes. Other possible encodings are
                 listed in online documentation here:
@@ -141,6 +147,13 @@ class UDPWriter(Writer):
             return None
 
     ############################
+    #
+    # FIXME: there's no check for maximum send size, which I think is pretty
+    #        big on Linux but only 4k on Mac?
+    #
+    #        should we be auto-fragmenting records that are too big and
+    #        terminating the last packet with eol?
+    #
     def write(self, record):
         """Write the record to the network."""
         # If we don't have a record, there's nothing to do

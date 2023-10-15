@@ -11,6 +11,9 @@ from logger.utils.formats import Text  # noqa: E402
 from logger.writers.writer import Writer  # noqa: E402
 
 
+# FIXME: implement tcp, remove udp entirely, maybe rename TCPWriter?  could
+#        make an issue for this.
+#
 class NetworkWriter(Writer):
     """Write to network."""
 

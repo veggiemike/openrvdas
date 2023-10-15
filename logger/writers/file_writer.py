@@ -60,7 +60,7 @@ class FileWriter(Writer):
         ```
 
         """
-        super().__init__()
+        super().__init__() # FIXME: unknown input_format?  i would think this should at least be Text...
 
         self.filename = filename
         self.mode = mode

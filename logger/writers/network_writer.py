@@ -109,8 +109,7 @@ class NetworkWriter(Writer):
         if not self.socket:
             self.socket = self._open_socket()
         if not self.socket:
-            logging.error('Unable to write record to %s:%d',
-                          self.destination, self.port)
+            logging.error('Unable to write record to %s', self.network)
             return
 
         num_tries = bytes_sent = 0

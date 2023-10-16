@@ -86,11 +86,9 @@ class NetworkWriter(Writer):
                                         type=socket.SOCK_STREAM,
                                         proto=socket.IPPROTO_TCP)
 
-        # UDP broadcast if no host specified. Note that there's some
-        # dodginess I don't understand about networks: if '<broadcast>' is
-        # specified, socket tries to send on *all* interfaces. if '' is
-        # specified, it tries to send on *any* interface.
+        # UDP broadcast if no host specified.
         else:
+            self.host = '<broadcast>'
             this_socket = socket.socket(family=socket.AF_INET,
                                         type=socket.SOCK_DGRAM,
                                         proto=socket.IPPROTO_UDP)

@@ -25,12 +25,10 @@ class UDPWriter(Writer):
         port         Port to which packets should be sent
 
         destination  The destination to send UDP packets to. If omitted (or None)
-                     is equivalent to specifying destination='<broadcast>',
-                     which will send to all available interfaces.
-
-                     Setting destination='255.255.255.255' means broadcast
-                     to local network. To broadcast to a specific interface,
-                     set destination to the broadcast address for that network.
+                     the UDPWriter will broadcast to 255.255.255.255.  On a
+                     system connected to more than one subnet, you'll want to
+                     specify the broadcast address of the network you're trying
+                     to send to (e.g., 192.168.1.255).
 
         interface    DEPRECATED - If specified, the network interface to
                      send from. Preferred usage is to use the 'destination'

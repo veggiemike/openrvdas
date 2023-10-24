@@ -27,6 +27,7 @@ BINARY_DATA = [b'\xff\xa1',
                b'\xff\xa2',
                b'\xff\xa3']
 
+# FIXME: not used?
 SAMPLE_MAX_BYTES_2 = ['$H',
                       'EH',
                       'DT',
@@ -37,6 +38,7 @@ SAMPLE_MAX_BYTES_2 = ['$H',
                       'T*',
                       '1b']
 
+# FIXME: not used?
 SAMPLE_TIMEOUT = [None,
                   '$HEHDT,234.76,T*1b',
                   None, None,

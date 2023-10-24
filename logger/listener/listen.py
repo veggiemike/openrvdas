@@ -512,6 +512,7 @@ if __name__ == '__main__':
                         'timeout, max_bytes and/or other SerialReader '
                         'parameters.')
 
+    # FIXME: shouldn't this apply to all the writers?  not just network?
     parser.add_argument('--network_eol', dest='network_eol', default=None,
                         help='Optional EOL string to add to writen records.')
 

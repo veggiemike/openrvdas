@@ -13,6 +13,17 @@ from logger.writers.writer import Writer  # noqa: E402
 from logger.writers.file_writer import FileWriter  # noqa: E402
 
 
+# FIXME: so, we could use this if we pass data through a TimeStampTransform
+#        first, then write set rollover_hourly=True.  Having filebase be a dict
+#        specifying which file to write each type of data to could be
+#        interesting
+
+
+# FIXME: no super init
+#
+# FIXME: no encoding - should actually disallow None, because it's assuming
+#        Text of some sort for timestamps
+#
 class LogfileWriter(Writer):
     """Write to the specified filebase, with datestamp appended. If filebase
     is a <regex>:<filebase> dict, write records to every filebase whose

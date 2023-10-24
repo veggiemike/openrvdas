@@ -13,7 +13,15 @@ sys.path.append(dirname(dirname(dirname(realpath(__file__)))))
 from logger.utils.timestamp import time_str, DATE_FORMAT  # noqa: E402
 from logger.writers.writer import Writer  # noqa: E402
 
-
+# FIXME: doesn't expect timestamps in records, uses system time to append
+#        timestamps to filenames only
+#
+# FIXME: probably not what we want for dslog replacement, but this is what we
+#        would use if we wanted to log binary data to file, i guess...
+#
+#        wait, why did i think we wouldn't use this for dslog replacement... it
+#        seems adequate know that i've added timestamp prefix support...
+#
 class FileWriter(Writer):
     """Write to the specified file. If filename is empty, write to stdout."""
 

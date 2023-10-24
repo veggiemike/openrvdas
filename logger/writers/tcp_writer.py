@@ -243,6 +243,14 @@ class TCPWriter(Writer):
                 continue
 
             # check to see if we really wrote it all
+            #
+            # FIXME: if we got here and we still haven't written the whole
+            #        thing, we loop around and try again... is that really
+            #        something that might happen?
+            #
+            # FIXME: what if we're on our last try and only write half the
+            #        data?  i guess we just only write half of it, then...
+            #
             if bytes_sent < rec_len:
                 logging.warning('TCPWriter: send() did not send the whole record: '
                                 'bytes_sent=%d, rec_len=%d', bytes_sent, rec_len)

@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 
 
 ################################################################################
+# FIXME: this doesn't inherit from Writer?  what should it set for output_format?  Text?
 class WebsocketWriter():
     ############################
 

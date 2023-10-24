@@ -9,7 +9,18 @@ sys.path.append(dirname(dirname(dirname(realpath(__file__)))))
 from logger.utils.formats import Text  # noqa: E402
 from logger.writers.writer import Writer  # noqa: E402
 
-
+# FIXME: Guh, why are there 3 different file writers: FileWriter,
+#        LogFileWriter, and TextFileWriter
+#
+#        TextFileWriter was the original, then LogFileWriter 2017-11-03, then
+#        "generalized FileWriter" 2020-08-01.
+#
+#        Looks like TextFileWriter is a "simple" FileWriter
+#
+# FIXME: shouldn't this take encoding, encoding_errors like everything else?
+#
+#        yes, and it should explicitly disallow None, because TextFileWriter
+#
 class TextFileWriter(Writer):
     """Write to the specified file. If filename is empty, write to stdout."""
 

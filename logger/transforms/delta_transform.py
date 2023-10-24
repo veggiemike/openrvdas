@@ -11,6 +11,7 @@ def polar_diff(last_value, value):
 
 
 ################################################################################
+# FIXME: derive from Transform
 class DeltaTransform:
     def __init__(self, rate=False, field_type=None):
         """Return a DASRecord (or dict, depending on input record type) with

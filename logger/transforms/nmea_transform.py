@@ -36,6 +36,7 @@ def checksum(source):
 
 
 ################################################################################
+# FIXME: derive from Transform
 class NMEATransform:
     """Call our various component transforms and generate NMEA strings from them.
     """

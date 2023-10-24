@@ -38,6 +38,7 @@ def compute_checksum(source):
 
 
 ################################################################################
+# FIXME: derive from Transform
 class NMEAChecksumTransform:
     """
     NMEAChecksumTransform checks the integrity/completeness of a record by confirming

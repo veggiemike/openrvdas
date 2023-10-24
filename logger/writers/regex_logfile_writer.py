@@ -12,6 +12,7 @@ from logger.writers.writer import Writer  # noqa: E402
 from logger.writers.file_writer import FileWriter  # noqa: E402
 
 
+# FIXME: no super init
 class RegexLogfileWriter(Writer):
     """Write to the specified filebase, with datestamp appended. If filebase
     is a <regex>:<filebase> dict, write records to every filebase whose

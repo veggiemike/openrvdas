@@ -247,6 +247,15 @@ EOF
 ###########################################################################
 ###########################################################################
 # Set hostname
+#
+# FIXME: Noooooooooooooooooooooooooooooooooooooooooooooo!
+#
+#        Do NOT modify my system's hostname when I install openrvdas.  And
+#        definately don't modify my /etc/hosts file!  Bad!
+#
+#        How about we just check to see if the system's hostname currently
+#        matches what they've specified and print a big warning if they differ?
+#
 function set_hostname {
     HOSTNAME=$1
 

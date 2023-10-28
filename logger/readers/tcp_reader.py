@@ -13,6 +13,11 @@ from logger.readers.reader import Reader  # noqa: E402
 #
 # NOTE: Optimal value should be the system's page size, which is probably 4k.
 #
+# FIXME: Woah, pagesize on Mac is 16K?  That's a bit higher than I was
+#        expecting... but whatever?  Should still be optimal, right?  Strange
+#        though, because they also arbitrarily limit outgoing UDP datagrams to
+#        9K even though the spec should allof for 64K.  Macs...  why....?
+#
 READ_BUFFER_SIZE = mmap.PAGESIZE
 
 

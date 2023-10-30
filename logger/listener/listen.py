@@ -516,6 +516,10 @@ if __name__ == '__main__':
     parser.add_argument('--network_eol', dest='network_eol', default=None,
                         help='Optional EOL string to add to writen records.')
 
+    # FIXME: this needs to get set FIRST, otherwise we create Readers/Writers
+    #        w/ 'utf-8' and then changed encoding to whatever the user
+    #        specified afterwards.  oops.
+    #
     parser.add_argument('--encoding', dest='encoding', default='utf-8',
                         help="Optional encoding of records.  Default is utf-8, "
                         "specify '' for raw/binary.  NOTE: This applies to ALL "

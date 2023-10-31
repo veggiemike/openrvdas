@@ -35,6 +35,14 @@
 # This script has been tested on a variety of architectures and operating
 # systems, but not exhaustively. Bug reports, and even better, bug
 # fixes, will be greatly appreciated.
+#
+# FIXME: Perhaps we should use systemd (all Linux) and launchd (Mac) instead of
+#        supervisor?
+#
+#        Actually, it doesn't look like we install supervisor on Mac...  so Mac
+#        is only partially installed?
+#
+
 
 PREFERENCES_FILE='.install_openrvdas_preferences'
 
@@ -560,6 +568,9 @@ function setup_nginx {
     # CentOS/RHEL or Debian/Ubuntu
     if [ $OS_TYPE == 'CentOS' ] || [ $OS_TYPE == 'Ubuntu' ]; then
         # Disable because we're going to run it via supervisor
+        #
+        # FIXME: guh, this was already using systemd...?
+        #
         systemctl stop nginx
         systemctl disable nginx # NGINX seems to be enabled by default?
     fi

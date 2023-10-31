@@ -513,6 +513,10 @@ if __name__ == '__main__':
                         'parameters.')
 
     # FIXME: shouldn't this apply to all the writers?  not just network?
+    #
+    #        right now, this applies to all readers/writers that occur after it
+    #        on the command line...  which seems non-intuitive
+    #
     parser.add_argument('--network_eol', dest='network_eol', default=None,
                         help='Optional EOL string to add to writen records.')
 
@@ -684,6 +688,15 @@ if __name__ == '__main__':
 
             ##########################
             # Readers
+            #
+            # FIXME: TextFileReader needs encoding...?  actually, it doesn't
+            #        take encoding yet.  Probably *should*, but it shouldn't
+            #        accept None or '', because it's "Text" file reader.  Not
+            #        binary.
+            #
+            #        That being said, there's currently no way to read binary
+            #        files as input...  FileReader isn't used in here anywhere.
+            #
             if new_args.file:
                 for filename in new_args.file.split(','):
                     readers.append(TextFileReader(
